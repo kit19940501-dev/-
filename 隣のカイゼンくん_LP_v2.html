@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隣のカイゼンくん｜AI導入・業務改善を「何から」の設計から伴走 - HR COMPANY</title>
+
+<!-- ▼ SEO(公開時にURL・OGP画像を確定) -->
+<meta name="description" content="「AIで業務を良くしたい。でも何から？」に答える、中小企業のためのAI導入・業務改善の伴走サービス。現場を見て、効く順に小さく始めて、回るまで離れない。無料の業務ムダ診断(オンライン30分)を受付中。全国対応。">
+<!-- TODO(公開時): canonical URLを本番ドメインに差し替え -->
+<link rel="canonical" href="https://example.com/kaizen/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="隣のカイゼンくん｜AI導入・業務改善の伴走サービス">
+<meta property="og:description" content="「AIで良くしたい」の“何から”に答えます。現状分析→AI導入→定着まで伴走。まずは無料の業務ムダ診断から。">
+<meta property="og:site_name" content="隣のカイゼンくん">
+<!-- TODO(公開時): OGP画像(1200x630)を用意して差し替え -->
+<meta property="og:image" content="https://example.com/kaizen/ogp.png">
+<meta property="og:url" content="https://example.com/kaizen/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230F5C63'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23F2EFE8' font-family='sans-serif' font-weight='bold'%3E改%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "AIの知識がまったくなくても大丈夫ですか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。何をAIに任せられるかの見極めから、ツールの設計・導入・定着まで、すべてこちらで伴走します。御社にお願いするのは「現場の実情を教えていただくこと」だけです。"}},
+    {"@type": "Question", "name": "どんな業務がAIで効率化できますか？", "acceptedAnswer": {"@type": "Answer", "text": "書類の読み取り・転記、見積・請求書の作成、売上集計、社内問い合わせ対応、期日管理など、定型的なPC業務・紙業務が対象です。着手順は現状分析で「効く順」に見極めます。"}},
+    {"@type": "Question", "name": "費用はどのくらいかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "伴走型は初期費用10万円（現状調査）＋月額10万円〜（プランとAI利用費により変動）。特定の業務だけをツールで解決する買い切り型は個別お見積もりです。"}},
+    {"@type": "Question", "name": "地方の会社でも依頼できますか？", "acceptedAnswer": {"@type": "Answer", "text": "全国対応・オンライン完結でご支援しています。現場調査もオンラインヒアリング中心のため、地域を問わずご利用いただけます。"}},
+    {"@type": "Question", "name": "途中でやめたら、何も残りませんか？", "acceptedAnswer": {"@type": "Answer", "text": "現状分析でお渡しする分析レポート・改善ロードマップ・優先度マップ、開発したツールは、すべて御社の資産として残ります。"}},
+    {"@type": "Question", "name": "無料の業務ムダ診断では何をしてもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "30分のオンラインヒアリングで業務の現状をお聞きし、ムダの所在と削減余地の目安を簡易レポートにしてお渡しします。売り込みのお電話はいたしません。"}}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --dark:#0F5C63;
+    --dark-2:#0A4249;
+    --night:#07333A;
+    --teal:#0E7490;
+    --green:#2E8B6B;
+    --green-d:#1F6B50;
+    --mint:#8FE0BC;
+    --ink:#1F2A2D;
+    --muted:#5E6B6E;
+    --line:#DEE7E6;
+    --bg:#FFFFFF;
+    --paper:#F4F7F6;
+    --soft:#E9F3EE;
+    --cream:#F2EFE8;
+    --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+    --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,svg{max-width:100%;vertical-align:middle}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .wrap-n{max-width:880px;margin:0 auto;padding:0 24px}
+
+  /* 章番号つきの見出しスタイル(編集的) */
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+  .sec-no{font-family:var(--serif);font-size:13px;letter-spacing:.28em;color:var(--green);font-weight:700;white-space:nowrap}
+  .sec-no::after{content:"";display:inline-block;width:36px;height:1px;background:var(--green);vertical-align:middle;margin-left:14px}
+  h2{font-family:var(--serif);font-size:clamp(25px,3.6vw,33px);font-weight:700;line-height:1.6;letter-spacing:.02em;color:var(--dark)}
+  .sec-lead{margin-top:12px;font-size:15px;color:var(--muted);max-width:640px}
+  section{padding:100px 0}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 40px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;cursor:pointer;border:none;text-align:center;font-family:var(--sans)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--green-d);color:#fff;box-shadow:0 10px 26px rgba(31,107,80,.32)}
+  .btn-primary:hover{background:var(--green)}
+  .btn-line{background:transparent;color:var(--dark);border:1.5px solid rgba(15,92,99,.4)}
+  .btn-line:hover{border-color:var(--dark)}
+  .btn:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+  .btn .arw{transition:transform .18s ease}
+  .btn:hover .arw{transform:translateX(4px)}
+
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.3,1), transform .8s cubic-bezier(.2,.7,.3,1)}
+  .rv.on{opacity:1;transform:none}
+  .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    .mq-track{animation:none !important}
+    *{animation-duration:.01ms !important}
+  }
+
+  /* header */
+  header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:50}
+  .header-in{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .logo{font-family:var(--serif);font-weight:700;font-size:18px;color:var(--dark);white-space:nowrap}
+  .logo small{font-family:var(--sans);font-weight:500;font-size:10.5px;color:var(--muted);margin-left:10px;letter-spacing:.08em}
+  .gnav{display:flex;gap:26px;font-size:13px;font-weight:600;color:var(--muted)}
+  .gnav a:hover{color:var(--dark)}
+  .header-cta{padding:11px 24px;font-size:13.5px}
+
+  /* ---------- FV ---------- */
+  .fv{position:relative;overflow:hidden;background:var(--paper);padding:96px 0 104px}
+  .fv::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;right:-160px;top:-220px;background:radial-gradient(circle at 35% 35%, rgba(46,139,107,.16), transparent 62%)}
+  .fv::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;left:-160px;bottom:-200px;background:radial-gradient(circle at 60% 40%, rgba(14,116,144,.10), transparent 60%)}
+  .fv-grid{position:relative;display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center;z-index:1}
+  .fv-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--green-d);margin-bottom:26px}
+  .fv-eyebrow::before{content:"";width:26px;height:1.5px;background:var(--green)}
+  .fv h1{font-family:var(--serif);font-weight:700;color:var(--dark);letter-spacing:.015em}
+  .fv h1 .l1{display:block;font-size:clamp(21px,2.3vw,30px);line-height:1.7;color:#3A5257;font-weight:600}
+  .fv h1 .l2{display:block;font-size:clamp(31px,4vw,52px);line-height:1.5;margin-top:6px}
+  .fv h1 .mk{background:linear-gradient(transparent 72%, #BFE7D2 72%)}
+  .fv-lead{margin:26px 0 6px;font-size:15.5px;color:var(--ink);max-width:480px}
+  .fv-lead b{color:var(--dark)}
+  .fv-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:30px}
+  .fv-micro{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:12px;color:var(--muted)}
+  .fv-micro span{display:inline-flex;align-items:center;gap:6px}
+  .fv-micro svg{width:13px;height:13px;stroke:var(--green);flex:none}
+
+  /* FVビジュアル: ブラウザ窓のダッシュボード */
+  .fv-vis{position:relative}
+  .browser{background:#fff;border-radius:16px;border:1px solid var(--line);box-shadow:0 34px 80px rgba(10,66,73,.20);overflow:hidden}
+  .browser-bar{display:flex;align-items:center;gap:6px;background:#EDF2F1;padding:11px 16px;border-bottom:1px solid var(--line)}
+  .browser-bar i{width:10px;height:10px;border-radius:50%;background:#D5DEDC}
+  .browser-bar i:first-child{background:#F0AFA5}.browser-bar i:nth-child(2){background:#F2D398}.browser-bar i:nth-child(3){background:#A8D8B9}
+  .browser-bar span{margin-left:10px;font-size:10.5px;color:var(--muted);letter-spacing:.04em}
+  .browser-body{padding:18px}
+  .bb-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .bb-head b{font-size:13.5px;color:var(--dark)}
+  .bb-head small{font-size:10px;color:var(--muted)}
+  .bb-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+  .bb-stat{background:var(--paper);border-radius:12px;padding:11px 13px}
+  .bb-stat .l{font-size:9.5px;color:var(--muted)}
+  .bb-stat .v{font-size:19px;font-weight:900;color:var(--green-d);line-height:1.3}
+  .bb-stat .v em{font-style:normal;font-size:11px;font-weight:700}
+  .bb-row{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:11px;padding:10px 13px;font-size:12px;margin-top:8px;background:#fff}
+  .bb-pill{font-size:9.5px;font-weight:700;color:#fff;border-radius:999px;padding:3px 11px}
+  .bp-a{background:var(--green)}.bp-b{background:var(--teal)}
+  .fv-float{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:12px;font-weight:700;box-shadow:0 12px 30px rgba(10,66,73,.14);white-space:nowrap;z-index:2}
+  .fv-float svg{width:15px;height:15px;stroke:var(--green-d);flex:none}
+  .ff-1{top:-18px;left:-26px;animation:bob 6s ease-in-out infinite}
+  .ff-2{bottom:-16px;right:-10px;animation:bob 7s .8s ease-in-out infinite}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+
+  /* ---------- 共感(ナラティブ) ---------- */
+  .story{background:var(--bg)}
+  .story-quote{font-family:var(--serif);font-size:clamp(22px,3.2vw,31px);font-weight:700;line-height:1.9;color:var(--dark);position:relative;padding-left:26px;border-left:3px solid var(--green)}
+  .story-quote .thin{color:#7A8B8E;font-weight:600}
+  .story-body{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .story-text p{font-size:15.5px;color:var(--ink);margin-bottom:1.2em}
+  .story-text p:last-child{margin-bottom:0}
+  .story-list{display:flex;flex-direction:column;gap:14px}
+  .story-item{display:flex;gap:14px;background:var(--paper);border-radius:14px;padding:18px 20px}
+  .story-item svg{width:20px;height:20px;stroke:var(--green-d);flex:none;margin-top:4px}
+  .story-item b{font-size:14.5px;color:var(--dark);display:block}
+  .story-item small{font-size:12.5px;color:var(--muted);display:block;line-height:1.7}
+  .story-close{margin-top:44px;text-align:center;font-family:var(--serif);font-size:clamp(19px,2.6vw,24px);font-weight:700;color:var(--dark)}
+  .story-close .mk{background:linear-gradient(transparent 72%, #BFE7D2 72%)}
+
+  /* ---------- 3ステップ(タイムライン) ---------- */
+  .how{background:var(--paper)}
+  .tl{margin-top:52px;position:relative}
+  .tl::before{content:"";position:absolute;left:31px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--green) 0%, var(--teal) 100%);opacity:.35}
+  .tl-item{display:grid;grid-template-columns:64px 1fr;gap:26px;margin-bottom:40px;position:relative}
+  .tl-item:last-child{margin-bottom:0}
+  .tl-no{width:64px;height:64px;border-radius:50%;background:#fff;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;font-weight:700;color:var(--green-d);z-index:1}
+  .tl-body{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+  .tl-body h3{font-family:var(--serif);font-size:20px;color:var(--dark);font-weight:700;margin-bottom:6px}
+  .tl-body p{font-size:14px;color:var(--ink)}
+  .tl-keep{font-size:11.5px;font-weight:700;color:var(--green-d);background:var(--soft);border-radius:999px;padding:7px 16px;white-space:nowrap}
+  .how-note{margin-top:36px;text-align:center;font-size:14px;color:var(--muted)}
+  .how-note b{color:var(--dark)}
+
+  /* ---------- 変化(ダーク見せ場) ---------- */
+  .shift{background:linear-gradient(155deg, var(--dark-2) 0%, var(--night) 100%);color:var(--cream);position:relative;overflow:hidden;padding:110px 0}
+  .shift::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle, rgba(46,139,107,.32) 0%, transparent 62%);top:-190px;right:-130px}
+  .shift .sec-no{color:var(--mint)}
+  .shift .sec-no::after{background:var(--mint)}
+  .shift h2{color:var(--cream)}
+  .shift .sec-lead{color:#AFC7C3}
+  .shift-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;margin-top:52px;align-items:center;position:relative;z-index:1}
+  .shift-left p{font-size:15px;color:#CBDCD8;margin-bottom:1.2em}
+  .shift-left p b{color:#fff}
+  .shift-points{display:flex;flex-direction:column;gap:16px;margin-top:26px}
+  .sp-item{display:flex;gap:13px;align-items:flex-start}
+  .sp-item svg{width:19px;height:19px;stroke:var(--mint);flex:none;margin-top:5px}
+  .sp-item b{color:#fff;font-size:15px;display:block}
+  .sp-item small{color:#AFC7C3;font-size:12.5px;display:block;line-height:1.7}
+  .shift-vis{position:relative}
+  .glow-board{background:rgba(255,255,255,.045);border:1px solid rgba(143,224,188,.25);border-radius:18px;overflow:hidden;box-shadow:0 0 70px rgba(46,139,107,.28)}
+  .gb-head{background:rgba(143,224,188,.10);padding:13px 20px;font-size:13px;font-weight:700;color:var(--mint);display:flex;justify-content:space-between}
+  .gb-head small{color:#8AA6A2;font-weight:400}
+  .gb-body{padding:18px 20px 20px;display:grid;gap:10px}
+  .gb-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .gb-stat{background:rgba(255,255,255,.05);border-radius:12px;padding:12px 14px}
+  .gb-stat .l{font-size:10px;color:#8AA6A2}
+  .gb-stat .v{font-size:22px;font-weight:900;color:var(--mint)}
+  .gb-row{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,255,255,.10);border-radius:11px;padding:10px 14px;font-size:12.5px;color:#DCE8E5}
+  .shift-tags{position:absolute;inset:auto auto -26px -22px;display:flex;gap:8px}
+  .shift-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 15px;font-size:11px;color:#CBDCD8;backdrop-filter:blur(3px)}
+
+  /* ---------- マーキー(AI活用例) ---------- */
+  .mq-sec{background:var(--bg);padding:100px 0 90px}
+  .mq{margin-top:46px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .mq+.mq{margin-top:16px}
+  .mq-track{display:flex;gap:14px;width:max-content;animation:mq 36s linear infinite}
+  .mq:nth-of-type(2) .mq-track{animation-duration:42s;animation-direction:reverse}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  .chip{display:inline-flex;align-items:center;gap:9px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:12px 22px;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
+  .chip svg{width:16px;height:16px;stroke:var(--green-d);flex:none}
+  .mq-note{margin-top:32px;text-align:center;font-size:14px;color:var(--muted)}
+  .mq-note b{color:var(--dark)}
+
+  /* ---------- 数字 ---------- */
+  .num-sec{background:var(--paper);padding:96px 0}
+  .num-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+  .num-copy p{font-size:15px;color:var(--ink);margin-top:16px}
+  .num-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:40px 42px;box-shadow:0 20px 50px rgba(10,66,73,.08)}
+  .num-line{font-size:14px;color:var(--muted)}
+  .num-line b{color:var(--dark)}
+  .num-big{font-family:var(--serif);color:var(--green-d);font-size:clamp(52px,6vw,74px);font-weight:800;line-height:1.15;margin:8px 0 2px}
+  .num-big .u{font-size:24px;font-weight:700;color:var(--ink)}
+  .num-sub{font-size:12px;color:var(--muted)}
+  .num-eq{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line);font-size:14.5px}
+  .num-eq b{font-family:var(--serif);font-size:22px;color:var(--dark)}
+
+  /* ---------- 事例 ---------- */
+  .cases{background:var(--bg)}
+  .case-list{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+  .case-item{position:relative;background:var(--paper);border-radius:20px;padding:34px 28px 28px;transition:transform .25s ease, box-shadow .25s ease}
+  .case-item:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(10,66,73,.10)}
+  .case-item .tag{position:absolute;top:-13px;left:24px;background:var(--dark);color:#fff;font-size:11.5px;font-weight:700;border-radius:999px;padding:4px 16px}
+  .case-item h3{font-family:var(--serif);font-size:18px;color:var(--dark);font-weight:700;line-height:1.7;margin-bottom:14px}
+  .case-item .flow{font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:18px}
+  .case-item .flow b{color:var(--ink)}
+  .case-res{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+  .case-res .n{font-family:var(--serif);font-size:21px;font-weight:800;color:var(--green-d)}
+  .case-res .n small{font-family:var(--sans);font-size:11.5px;color:var(--muted);font-weight:600;margin-left:6px}
+  .case-res p{font-size:12px;color:var(--ink);font-weight:600;margin-top:2px}
+  .cases-note{margin-top:26px;font-size:11.5px;color:var(--muted);text-align:center}
+
+  /* ---------- 選ばれる理由 ---------- */
+  .why{background:var(--paper)}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:52px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+  .why-col{padding:38px 32px;border-right:1px solid var(--line)}
+  .why-col:last-child{border-right:none}
+  .why-col .no{font-family:var(--serif);font-size:34px;color:#C8DAD6;font-weight:800;line-height:1}
+  .why-col h3{font-family:var(--serif);font-size:19px;color:var(--dark);font-weight:700;margin:14px 0 10px;line-height:1.7}
+  .why-col p{font-size:13.5px;color:var(--muted)}
+
+  /* ---------- 料金 ---------- */
+  .price{background:var(--bg)}
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 28px;position:relative;transition:transform .25s ease, box-shadow .25s ease}
+  .plan:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(10,66,73,.10)}
+  .plan.hot{border:2px solid var(--green-d)}
+  .plan .reco{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--green-d);color:#fff;font-size:11.5px;font-weight:700;border-radius:999px;padding:4px 18px;white-space:nowrap}
+  .plan .p-name{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.06em}
+  .plan .p-copy{font-family:var(--serif);font-size:17.5px;color:var(--dark);font-weight:700;margin:6px 0 14px;line-height:1.65;min-height:58px}
+  .plan .p-price{font-family:var(--serif);font-size:30px;font-weight:800;color:var(--green-d)}
+  .plan .p-price small{font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:600;margin-left:4px}
+  .plan ul{list-style:none;margin-top:16px}
+  .plan li{font-size:13px;color:var(--ink);padding:7px 0 7px 24px;position:relative;border-bottom:1px dashed var(--line)}
+  .plan li:last-child{border-bottom:none}
+  .plan li::before{content:"✓";position:absolute;left:2px;color:var(--green);font-weight:700}
+  .price-notes{margin-top:26px;text-align:center;font-size:12.5px;color:var(--muted);line-height:2}
+  .price-notes b{color:var(--dark)}
+
+  /* ---------- FAQ ---------- */
+  .faq-sec{background:var(--paper)}
+  .faq-list{margin-top:40px}
+  details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px 26px;margin-bottom:12px}
+  summary{cursor:pointer;font-weight:700;font-size:15px;padding:19px 36px 19px 0;color:var(--dark);list-style:none;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"＋";position:absolute;right:2px;top:50%;transform:translateY(-50%);color:var(--green);font-weight:400;font-size:18px}
+  details[open] summary::after{content:"－"}
+  details p{font-size:14px;color:var(--ink);padding:0 0 20px}
+
+  /* ---------- 診断オファー ---------- */
+  .offer{background:linear-gradient(155deg, var(--dark) 0%, var(--night) 100%);color:var(--cream);position:relative;overflow:hidden;padding:110px 0}
+  .offer::before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle, rgba(46,139,107,.30) 0%, transparent 62%);bottom:-200px;left:-140px}
+  .offer .sec-no{color:var(--mint)}
+  .offer .sec-no::after{background:var(--mint)}
+  .offer h2{color:var(--cream)}
+  .offer .sec-lead{color:#AFC7C3}
+  .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:48px;align-items:start;position:relative;z-index:1}
+  .offer-box{background:rgba(255,255,255,.05);border:1px solid rgba(143,224,188,.22);border-radius:18px;padding:30px 30px}
+  .offer-box h3{font-family:var(--serif);font-size:18px;color:var(--mint);margin-bottom:18px}
+  .offer-item{display:flex;gap:14px;margin-bottom:18px}
+  .offer-item:last-child{margin-bottom:0}
+  .offer-item .n{width:32px;height:32px;border-radius:50%;background:rgba(143,224,188,.14);color:var(--mint);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:14px;flex:none}
+  .offer-item b{display:block;font-size:14.5px;color:#fff}
+  .offer-item small{font-size:12.5px;color:#AFC7C3;display:block;line-height:1.75}
+  .offer-note{margin-top:20px;font-size:12px;color:#8AA6A2}
+  .form-card{background:#fff;border-radius:22px;padding:36px 34px;box-shadow:0 30px 70px rgba(0,0,0,.30);color:var(--ink)}
+  .form-card h3{font-family:var(--serif);font-size:19px;color:var(--dark);margin-bottom:4px}
+  .form-card .fnote{font-size:12.5px;color:var(--muted);margin-bottom:22px}
+  .field{margin-bottom:15px}
+  .field label{display:block;font-size:12.5px;font-weight:700;color:var(--dark);margin-bottom:6px}
+  .field label small{color:var(--muted);font-weight:500;margin-left:6px}
+  .field input,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px;font-family:var(--sans);background:var(--paper);transition:border-color .2s ease, background .2s ease}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--green);background:#fff}
+  .form-card .btn{width:100%;margin-top:8px}
+  .form-card .privacy{font-size:11px;color:var(--muted);margin-top:12px;text-align:center}
+
+  footer{background:var(--night);color:#7FA09B;font-size:11.5px;text-align:center;padding:30px 16px 96px;line-height:2}
+  .foot-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:10px;font-size:12px}
+  .foot-links a{color:#AFC7C3;text-decoration:underline;text-underline-offset:3px}
+  .foot-links a:hover{color:#fff}
+
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:none}
+  .sticky-cta .btn{width:100%;padding:14px 18px;font-size:14.5px}
+
+  @media (max-width:900px){
+    section{padding:72px 0}
+    .gnav,.header-cta{display:none}
+    .logo small{display:none}
+    .fv{padding:60px 0 66px}
+    .fv-grid{grid-template-columns:1fr;gap:52px}
+    .fv h1 .l1{font-size:19px}
+    .fv h1 .l2{font-size:30px}
+    .fv-cta .btn{width:100%;font-size:14.5px;padding:16px 18px}
+    .fv-vis{margin:0 6px}
+    .ff-1{left:-8px}
+    .ff-2{right:-4px}
+    .story-body,.shift-grid,.num-grid,.offer-grid{grid-template-columns:1fr;gap:34px}
+    .case-list,.plan-grid{grid-template-columns:1fr;gap:26px}
+    .why-grid{grid-template-columns:1fr}
+    .why-col{border-right:none;border-bottom:1px solid var(--line)}
+    .why-col:last-child{border-bottom:none}
+    .tl::before{left:23px}
+    .tl-no{width:48px;height:48px;font-size:17px}
+    .tl-item{grid-template-columns:48px 1fr;gap:16px}
+    .tl-body{grid-template-columns:1fr;padding:22px 22px}
+    .shift,.offer{padding:76px 0}
+    .sticky-cta{display:block}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <div class="logo">隣のカイゼンくん<small>AI導入・業務改善の伴走サービス</small></div>
+    <nav class="gnav" aria-label="ページ内メニュー">
+      <a href="#how">進め方</a>
+      <a href="#patterns">AI活用例</a>
+      <a href="#cases">導入イメージ</a>
+      <a href="#price">料金</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#offer" class="btn btn-primary header-cta">無料で業務ムダ診断</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= FV ================= -->
+<div class="fv">
+  <div class="wrap fv-grid">
+    <div>
+      <p class="fv-eyebrow">中小企業のAI導入、"つまずく前"の相談先</p>
+      <h1>
+        <span class="l1">AIで、業務を良くしたい。</span>
+        <span class="l2">その<span class="mk">「何から」</span>に、<br>答えます。</span>
+      </h1>
+      <p class="fv-lead">ツールを売って終わりの会社ではありません。<b>現場を見て、効く順に小さく始めて、回るまで離れない</b>。それが、隣のカイゼンくんの仕事です。</p>
+      <div class="fv-cta">
+        <a href="#offer" class="btn btn-primary">無料で、業務のムダを診断する<span class="arw">→</span></a>
+      </div>
+      <div class="fv-micro">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>オンライン30分・売り込みなし</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>AIの知識ゼロでOK</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>全国対応</span>
+      </div>
+    </div>
+    <div class="fv-vis">
+      <div class="fv-float ff-1"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>請求書の発行、自動化されました</div>
+      <div class="browser" role="img" aria-label="業務がひとつのダッシュボードに集約され、AIで自動化されていく画面イメージ">
+        <div class="browser-bar"><i></i><i></i><i></i><span>kaizen-dashboard</span></div>
+        <div class="browser-body">
+          <div class="bb-head"><b>御社専用ダッシュボード</b><small>今月のカイゼン状況</small></div>
+          <div class="bb-stats">
+            <div class="bb-stat"><p class="l">消えた業務</p><p class="v">18<em>件</em></p></div>
+            <div class="bb-stat"><p class="l">浮いた時間</p><p class="v">22.5<em>h</em></p></div>
+            <div class="bb-stat"><p class="l">自動化率</p><p class="v">64<em>%</em></p></div>
+          </div>
+          <div class="bb-row"><span>請求書の発行・送付</span><span class="bb-pill bp-a">自動化済</span></div>
+          <div class="bb-row"><span>日次売上の集計レポート</span><span class="bb-pill bp-a">自動化済</span></div>
+          <div class="bb-row"><span>受注データの転記</span><span class="bb-pill bp-b">整理中</span></div>
+        </div>
+      </div>
+      <div class="fv-float ff-2"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>今月、22.5時間が現場に戻る</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 共感 ================= -->
+<section class="story">
+  <div class="wrap-n">
+    <p class="story-quote rv">ChatGPTは、触ってみた。<br><span class="thin">でも、会社の業務は</span>何も変わっていない。</p>
+    <div class="story-body">
+      <div class="story-text rv rv-d1">
+        <p>多くの経営者が、同じところで止まっています。AIが便利なのは、もう知っている。ニュースでも展示会でも、嫌というほど聞いた。</p>
+        <p>それでも進まないのは、能力の問題ではありません。<b>日々の業務を回しながら、AI導入を設計する時間と専門知識を、社内に持てない</b>だけです。</p>
+      </div>
+      <div class="story-list rv rv-d2">
+        <div class="story-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><div><b>何が一番のムダか、わからない</b><small>どこから手をつけるべきか、整理する時間がない。</small></div></div>
+        <div class="story-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><div><b>ツールを選べない・作れない</b><small>自社に合う形にする知識と工数が、社内にない。</small></div></div>
+        <div class="story-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div><b>緊急じゃないから、後回しになる</b><small>重要なのはわかっている。でも今日も目の前の業務がある。</small></div></div>
+      </div>
+    </div>
+    <p class="story-close rv">足りないのはAIの知識ではなく、<span class="mk">「何から」の設計</span>です。</p>
+  </div>
+</section>
+
+<!-- ================= 3ステップ ================= -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-no">01&nbsp;/&nbsp;HOW</span></div>
+    <h2 class="rv">現場を見る。効く順に入れる。<br>回るまで、離れない。</h2>
+    <p class="sec-lead rv">AI導入がうまくいかない最大の理由は、いきなりツールから入ること。カイゼンくんは、必ずこの順番で進めます。</p>
+    <div class="tl">
+      <div class="tl-item rv">
+        <div class="tl-no">1</div>
+        <div class="tl-body">
+          <div><h3>現場を見て、ムダを言葉にする</h3><p>アドバイザーが現場に入り、業務の流れとつまずきを可視化。「なんとなく大変」を、数字と言葉に変えます。</p></div>
+          <span class="tl-keep">残るもの：現状分析レポート</span>
+        </div>
+      </div>
+      <div class="tl-item rv">
+        <div class="tl-no">2</div>
+        <div class="tl-body">
+          <div><h3>「効く順」を、一緒に決める</h3><p>効果と手間の2軸で優先度をつけ、何をAIエージェントに任せるかを設計。全部を一気に入れる必要はありません。</p></div>
+          <span class="tl-keep">残るもの：改善ロードマップ</span>
+        </div>
+      </div>
+      <div class="tl-item rv">
+        <div class="tl-no">3</div>
+        <div class="tl-body">
+          <div><h3>つくって、回るまで伴走する</h3><p>AIエージェントとツールを実装し、現場が使いこなせるまで運用に付き添う。「導入したのに使われない」で終わらせません。</p></div>
+          <span class="tl-keep">残るもの：御社仕様のAIと運用</span>
+        </div>
+      </div>
+    </div>
+    <p class="how-note rv">分析だけで終わっても大丈夫。<b>成果物はすべて御社の資産として残ります。</b></p>
+  </div>
+</section>
+
+<!-- ================= 変化(ダーク) ================= -->
+<section class="shift">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-no">02&nbsp;/&nbsp;AFTER</span></div>
+    <h2 class="rv">散らばった業務が、<br>ひとつの画面で回りだす。</h2>
+    <div class="shift-grid">
+      <div class="shift-left rv">
+        <p>Excel台帳、紙の帳票、メール、チャット、そして<b>担当者の頭の中</b>。バラバラに散らばった業務とデータを、御社専用のダッシュボードに集約します。</p>
+        <p>集まったデータはAIの燃料になります。ここから先、御社の日常はこう変わります。</p>
+        <div class="shift-points">
+          <div class="sp-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><div><b>「探す」がなくなる</b><small>「あの件どうなってた？」に、AIが即答する。</small></div></div>
+          <div class="sp-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><div><b>「打ち直す」が消える</b><small>紙もPDFもAIが読み取り、台帳へ自動転記。</small></div></div>
+          <div class="sp-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div><b>「教える」もAIの仕事に</b><small>手順はAIが案内。新人も初日から回せる。</small></div></div>
+        </div>
+      </div>
+      <div class="shift-vis rv rv-d1">
+        <div class="glow-board">
+          <div class="gb-head"><span>御社専用ダッシュボード</span><small>リアルタイム</small></div>
+          <div class="gb-body">
+            <div class="gb-stats">
+              <div class="gb-stat"><p class="l">今月消えた業務</p><p class="v">18件</p></div>
+              <div class="gb-stat"><p class="l">浮いた時間</p><p class="v">22.5h</p></div>
+            </div>
+            <div class="gb-row"><span>請求書の発行</span><span class="bb-pill bp-a">自動化済</span></div>
+            <div class="gb-row"><span>日次売上の集計</span><span class="bb-pill bp-a">自動化済</span></div>
+            <div class="gb-row"><span>受注データの転記</span><span class="bb-pill bp-b">整理中</span></div>
+          </div>
+        </div>
+        <div class="shift-tags">
+          <span class="shift-tag">Excel台帳</span>
+          <span class="shift-tag">紙の帳票</span>
+          <span class="shift-tag">メール</span>
+          <span class="shift-tag">担当者の記憶</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI活用例(マーキー) ================= -->
+<section class="mq-sec" id="patterns">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-no">03&nbsp;/&nbsp;PATTERNS</span></div>
+    <h2 class="rv">御社の“めんどくさい”、<br>だいたいAIにできます。</h2>
+    <p class="sec-lead rv">AI活用の入り口は、ひとつではありません。実際にご相談の多い使い方の例 ──</p>
+  </div>
+  <div class="mq" aria-hidden="true">
+    <div class="mq-track">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>社内AIチャットボット</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>紙・PDFの自動読み取り</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4.5 22H16a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="m3 15 2 2 4-4"/></svg>見積・請求書の自動作成</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>期日・抜け漏れの見張り番</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>売上・進捗の自動レポート</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>議事録・日報の自動整理</span>
+      <!-- 複製(ループ用) -->
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>社内AIチャットボット</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>紙・PDFの自動読み取り</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4.5 22H16a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="m3 15 2 2 4-4"/></svg>見積・請求書の自動作成</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>期日・抜け漏れの見張り番</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>売上・進捗の自動レポート</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>議事録・日報の自動整理</span>
+    </div>
+  </div>
+  <div class="mq" aria-hidden="true">
+    <div class="mq-track">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>問い合わせメールの一次対応</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>シフト表の下書き作成</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>在庫・発注のアラート</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>応募者への一次連絡</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4.5 22H16a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="m3 15 2 2 4-4"/></svg>契約書まわりのチェック</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>経営数字のダッシュボード化</span>
+      <!-- 複製(ループ用) -->
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>問い合わせメールの一次対応</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>シフト表の下書き作成</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>在庫・発注のアラート</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>応募者への一次連絡</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4.5 22H16a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="m3 15 2 2 4-4"/></svg>契約書まわりのチェック</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg>経営数字のダッシュボード化</span>
+    </div>
+  </div>
+  <div class="wrap"><p class="mq-note rv">どれを入れるかは、現状分析で<b>「効く順」</b>に決めます。ぜんぶ一気に入れる必要はありません。</p></div>
+</section>
+
+<!-- ================= 数字 ================= -->
+<section class="num-sec">
+  <div class="wrap num-grid">
+    <div class="num-copy rv">
+      <div class="sec-head"><span class="sec-no">04&nbsp;/&nbsp;IMPACT</span></div>
+      <h2>削った時間は、<br>そのまま売上になる。</h2>
+      <p>業務改善はコスト削減の話に聞こえますが、本質は違います。<b>浮いた時間を商談・面談・現場に再投資できる</b>ようになる。つまり、人を増やさずに「動ける量」が増える施策です。</p>
+    </div>
+    <div class="num-card rv rv-d1">
+      <p class="num-line">たとえば、営業スタッフ20名の会社で<b>1人1日1時間</b>の事務が減ると ──</p>
+      <p class="num-big">月<span id="countup" data-target="400">0</span><span class="u">時間</span></p>
+      <p class="num-sub">が営業活動に戻る（20営業日換算）</p>
+      <p class="num-eq">これは<b>営業 約2.5人分</b>の稼働を、採用ゼロで確保するのと同じことです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 事例 ================= -->
+<section class="cases" id="cases">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-no">05&nbsp;/&nbsp;CASE</span></div>
+    <h2 class="rv">たとえば、こんな変わり方。</h2>
+    <div class="case-list">
+      <div class="case-item rv">
+        <span class="tag">人材紹介・派遣｜20名</span>
+        <h3>夜な夜な応募者対応していた営業が、面談に集中できるように。</h3>
+        <p class="flow">応募者連絡・求人票作成・日程調整で1人あたり毎日2時間 → <b>一次対応を型化し、リストを一元化。抜け漏れチェックはAIへ。</b></p>
+        <div class="case-res"><span class="n">月60時間<small>の営業時間を創出</small></span><p>面談数1.3倍 → 成約の母数が増える</p></div>
+      </div>
+      <div class="case-item rv rv-d1">
+        <span class="tag">飲食・多店舗｜5店舗</span>
+        <h3>月末2日がかりの本部集計が、「数字を見るだけ」に。</h3>
+        <p class="flow">店長が発注・シフト・日報を店舗ごとの独自ルールで手作業 → <b>フォーマットを統一し、集計を自動化。</b></p>
+        <div class="case-res"><span class="n">店長1人 月25時間<small>を削減</small></span><p>浮いた時間を接客改善と採用に</p></div>
+      </div>
+      <div class="case-item rv rv-d2">
+        <span class="tag">建設・不動産｜30名</span>
+        <h3>三重入力と月末の照合残業が、まとめて消えた。</h3>
+        <p class="flow">見積・契約・工事台帳に同じ情報を三重入力 → <b>台帳を一元化し、書類間の転記を自動化。</b></p>
+        <div class="case-res"><span class="n">経理残業 月25時間<small>を削減</small></span><p>請求漏れゼロ → キャッシュフロー改善</p></div>
+      </div>
+    </div>
+    <p class="cases-note rv">※ サービス内容にもとづく想定モデルケースです。数値は業務量から試算した目安です。</p>
+  </div>
+</section>
+
+<!-- ================= 選ばれる理由 ================= -->
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-no">06&nbsp;/&nbsp;WHY US</span></div>
+    <h2 class="rv">ツールを売る会社では、ありません。</h2>
+    <p class="sec-lead rv">AI導入支援は増えました。それでもカイゼンくんが選ばれる理由は、この3つです。</p>
+    <div class="why-grid rv">
+      <div class="why-col">
+        <p class="no">01</p>
+        <h3>現場に、人が入る</h3>
+        <p>ヒアリングシートだけで設計しません。実際の業務の流れとつまずきを見てから、何をAIに任せるかを決めます。</p>
+      </div>
+      <div class="why-col">
+        <p class="no">02</p>
+        <h3>「効く順」に、小さく始める</h3>
+        <p>効果と手間の2軸で優先度をつけ、費用対効果の高いところから着手。最初から大きな投資は求めません。</p>
+      </div>
+      <div class="why-col">
+        <p class="no">03</p>
+        <h3>途中でやめても、資産が残る</h3>
+        <p>分析レポート・改善ロードマップ・開発したツールは、すべて御社のもの。契約が終わっても使い続けられます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 料金 ================= -->
+<section class="price" id="price">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-no">07&nbsp;/&nbsp;PRICING</span></div>
+    <h2 class="rv">小さく始めて、効いたら広げる。</h2>
+    <p class="sec-lead rv">伴走型は、初期費用10万円の現状調査からスタート。月額は関わり方の深さで選べます。</p>
+    <div class="plan-grid">
+      <div class="plan rv">
+        <p class="p-name">ライトプラン｜梅</p>
+        <p class="p-copy">まずは、面倒な作業を<br>ツールで軽くしたい</p>
+        <p class="p-price">月10万円<small>〜 ＋AI利用費</small></p>
+        <ul>
+          <li>現状の業務課題が言語化される</li>
+          <li>ムダな作業に優先順位がつく</li>
+          <li>個人事業主・小規模チーム向け</li>
+        </ul>
+      </div>
+      <div class="plan hot rv rv-d1">
+        <span class="reco">ご成約が多いプラン</span>
+        <p class="p-name">スタンダードプラン｜竹</p>
+        <p class="p-copy">AIエージェントで、<br>業務の流れごと整えたい</p>
+        <p class="p-price">月20万円<small>〜 ＋AI利用費</small></p>
+        <ul>
+          <li>業務フローが設計・再構築される</li>
+          <li>現場が回る仕組みに落とし込まれる</li>
+          <li>導入後の運用まで伴走</li>
+        </ul>
+      </div>
+      <div class="plan rv rv-d2">
+        <p class="p-name">プレミアムプラン｜松</p>
+        <p class="p-copy">業務だけでなく、<br>組織の形から整えたい</p>
+        <p class="p-price">月30万円<small>〜 ＋個別お見積もり</small></p>
+        <ul>
+          <li>役割分担・体制が整理される</li>
+          <li>部門をまたいだ業務設計</li>
+          <li>経営判断に使えるデータが残る</li>
+        </ul>
+      </div>
+    </div>
+    <p class="price-notes rv">全プラン共通：<b>初期費用10万円（現状調査）</b>／ 参考価格・税別。対応範囲により、ご提案時に調整します。<br>特定の業務だけをツールで解決したい方には<b>「買い切り型」（個別お見積もり）</b>もご用意しています。</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq-sec" id="faq">
+  <div class="wrap-n">
+    <div class="sec-head rv"><span class="sec-no">08&nbsp;/&nbsp;FAQ</span></div>
+    <h2 class="rv">よくあるご質問</h2>
+    <div class="faq-list">
+      <details class="rv">
+        <summary>AIの知識がまったくなくても大丈夫ですか？</summary>
+        <p>はい。何をAIに任せられるかの見極めから、ツールの設計・導入・定着まで、すべてこちらで伴走します。御社にお願いするのは「現場の実情を教えていただくこと」だけです。</p>
+      </details>
+      <details class="rv">
+        <summary>どんな業務がAIで効率化できますか？</summary>
+        <p>書類の読み取り・転記、見積・請求書の作成、売上集計、社内問い合わせ対応、期日管理など、定型的なPC業務・紙業務が対象です。着手順は現状分析で「効く順」に見極めます。</p>
+      </details>
+      <details class="rv">
+        <summary>費用はどのくらいかかりますか？</summary>
+        <p>伴走型は初期費用10万円（現状調査）＋月額10万円〜（プランとAI利用費により変動）です。特定の業務だけをツールで解決する買い切り型は、個別にお見積もりします。</p>
+      </details>
+      <details class="rv">
+        <summary>地方の会社でも依頼できますか？</summary>
+        <p>全国対応・オンライン完結でご支援しています。現場調査もオンラインヒアリング中心のため、地域を問わずご利用いただけます。</p>
+      </details>
+      <details class="rv">
+        <summary>途中でやめたら、何も残りませんか？</summary>
+        <p>現状分析でお渡しする分析レポート・改善ロードマップ・優先度マップ、開発したツールは、すべて御社の資産として残ります。</p>
+      </details>
+      <details class="rv">
+        <summary>無料の業務ムダ診断では、何をしてもらえますか？</summary>
+        <p>30分のオンラインヒアリングで業務の現状をお聞きし、ムダの所在と削減余地の目安を簡易レポートにしてお渡しします。売り込みのお電話はいたしません。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 診断オファー ================= -->
+<section class="offer" id="offer">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-no">09&nbsp;/&nbsp;FREE CHECK</span></div>
+    <h2 class="rv">まず、御社の「ムダの正体」を<br>知ってください。</h2>
+    <p class="sec-lead rv">診断だけで終わっても構いません。それでも、ムダの所在がわかるだけで一歩前に進みます。</p>
+    <div class="offer-grid">
+      <div>
+        <div class="offer-box rv">
+          <h3>無料診断に含まれるもの</h3>
+          <div class="offer-item"><span class="n">1</span><div><b>30分のオンラインヒアリング</b><small>いまの業務の流れと、困っていることをお聞きします。準備は不要です。</small></div></div>
+          <div class="offer-item"><span class="n">2</span><div><b>業務ムダの簡易レポート</b><small>ムダの所在と、削減できそうな時間の目安をまとめてお渡しします。</small></div></div>
+          <div class="offer-item"><span class="n">3</span><div><b>「効く順」のご提案</b><small>もしAIを入れるなら何からか。着手順の考え方までお伝えします。</small></div></div>
+        </div>
+        <p class="offer-note rv">※ 診断は無料です。売り込みのお電話はいたしません。<br>※ 丁寧にお返しするため、毎月の対応数を限定しています。</p>
+      </div>
+      <!-- TODO(公開時): フォームの送信先(フォームサービス or 自社エンドポイント)を接続 -->
+      <form class="form-card rv rv-d1" action="#" method="post">
+        <h3>無料の業務ムダ診断を申し込む</h3>
+        <p class="fnote">入力は30秒。折り返し、日程調整のご連絡を差し上げます。</p>
+        <div class="field"><label for="f-company">会社名</label><input id="f-company" name="company" type="text" required autocomplete="organization"></div>
+        <div class="field"><label for="f-name">お名前</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
+        <div class="field"><label for="f-email">メールアドレス</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="f-tel">電話番号<small>任意</small></label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-note">いま困っていること<small>任意</small></label><textarea id="f-note" name="note" rows="3" placeholder="例）請求書まわりが手作業で、月末がつらい など"></textarea></div>
+        <button type="submit" class="btn btn-primary">無料診断を申し込む<span class="arw">→</span></button>
+        <p class="privacy">送信いただいた情報は、本診断のご連絡以外には使用しません。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-links">
+    <!-- TODO(公開時): 各ページを用意してリンク差し替え -->
+    <a href="#">運営会社</a>
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">隣のエイジムさん（AI秘書）</a>
+  </div>
+  隣のカイゼンくん（AI導入・業務改善）｜運営：HR COMPANY株式会社<br>
+  © HR COMPANY Inc. All rights reserved.
+</footer>
+
+<div class="sticky-cta">
+  <a href="#offer" class="btn btn-primary">無料で業務のムダを診断する</a>
+</div>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  const cu = document.getElementById('countup');
+  if (cu) {
+    const target = +cu.dataset.target;
+    const io2 = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
+      io2.disconnect();
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { cu.textContent = target; return; }
+      const t0 = performance.now(), dur = 1300;
+      const tick = (t) => {
+        const p = Math.min((t - t0) / dur, 1);
+        cu.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.4 });
+    io2.observe(cu);
+  }
+</script>
+
+</body>
+</html>
